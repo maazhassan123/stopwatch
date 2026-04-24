@@ -4,18 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stopwatch</title>
+    <style>
+        h1{
+            text-align: center;
+
+        }
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+        #start{
+            color: rgb(55, 45, 45);
+            background-color: rgb(190, 186, 186);
+            width: 60px;
+            height: 30px;
+            border-radius: 20px;
+            margin-right: 20px;
+            font-weight: bold;
+            
+            border: none;
+        }
+        #stop{
+            color: rgb(55, 45, 45);
+            background-color: rgb(190, 186, 186);
+            width: 60px;
+            height: 30px;
+            font-weight: bold;
+            border-radius: 20px;
+            margin-right: 20px;
+            border: none;
+        }
+        #reset{
+             color: rgb(55, 45, 45);
+            background-color: rgb(190, 186, 186);
+            width: 60px;
+            height: 30px;
+            font-weight: bold;
+            border-radius: 20px;
+            margin-right: 20px;
+            border: none;
+        }
+    </style>
 </head>
 <body>
-    <h1><label >H:M:S:MS</label></h1>
+    <div >
+    <h1>H:M:S:MS</h1>
     <h1 id ="stopwatch">
 
     </h1>
-    <button onclick="start()"> Start</button>
-    <button onclick="stop()"> Stop</button>
-    <button onclick="reset()">Reset</button>
+    <button id="start" onclick="start()"> Start</button>
+    <button id="stop" onclick="stop()"> Stop</button>
+    <button id="reset" onclick="reset()">Reset</button>
+    </div>
     <script>
         let v=null;
         let seconds=0,hours=0,mins=0,milliseconds=0;
+        
+            document.getElementById("stopwatch").innerText=`${hours}:${mins}:${seconds}:${milliseconds}`;
         function update(){
             milliseconds++;
             if(milliseconds==100){
